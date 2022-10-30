@@ -17,6 +17,7 @@
             if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
                 $user = Auth::user();
                 $success['token'] =  $user->createToken('nApp')->accessToken;
+                $value = $success['token']->setlocale('token');
                 return response()->json(['success' => $success], $this->successStatus);
             }
             else{
@@ -45,8 +46,6 @@
             $success['name'] =  $user->name;
             $success['npp'] =  $user->npp;
             $success['npp_supervisor'] =  $user->npp_supervisor;
-            
- 
             return response()->json(['success'=>$success], $this->successStatus);
         }
  
