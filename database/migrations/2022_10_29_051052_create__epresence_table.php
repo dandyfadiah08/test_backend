@@ -18,7 +18,7 @@ class CreateEpresenceTable extends Migration
             $table->integer('id_user')->unsigned(); 
             $table->foreign('id_user')->references('id')->on('users');  
             $table->string('Type');
-            $table->string('is_approve');
+            $table->string('is_approve')->nullable();;
             $table->string('waktu');
             $table->timestamps();
         });
